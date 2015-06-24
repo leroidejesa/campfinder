@@ -15,5 +15,4 @@ Router.map(function() {
   this.resource('about');
 });
 
-
 export default Router;

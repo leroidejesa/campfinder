@@ -4,7 +4,10 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'campfinder',
     environment: environment,
+<<<<<<< HEAD
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+=======
+>>>>>>> 1d57b492316dcba9bac916482a393024271b8749
     firebase: 'https://campfinder.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
@@ -23,7 +26,11 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self'",
+<<<<<<< HEAD
       'connect-src': "*",
+=======
+      'connect-src': "'self'",
+>>>>>>> 1d57b492316dcba9bac916482a393024271b8749
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'",
       'frame-src': "'none'"
