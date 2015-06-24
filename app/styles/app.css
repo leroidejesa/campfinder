@@ -1,0 +1,25 @@
+.logo {
+  max-width: 40px;
+}
+
+body {
+  padding: 70px;
+}
+
+.all-campsites {
+  height: 185px;
+  width: 185px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 200px;
+}
+
+.campsite-profile {
+  padding: 10px;
+  width: 50%;
+  /*display: block;
+  margin: 0 auto;*/
+}

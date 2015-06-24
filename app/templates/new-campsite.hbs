@@ -1,0 +1,36 @@
+<h1>Add a campsite</h1>
+
+<form>
+  <div class="form-group">
+    <label for="identifier">Site name:</label>
+    {{input id="identifier" class="form-control" value=identifier}}
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    {{textarea id="description" class="form-control" rows="3" value=description}}
+  </div>
+
+  <div class="form-group">
+    <label for="waterSource">Water source?</label>
+    {{input id="waterSource" class="form-control" value=waterSource}}
+  </div>
+
+  <div class="form-group">
+    <label for="GPSLocation">Coordinates:</label>
+    {{input id="GPSLocation" class="form-control" value=GPSLocation}}
+  </div>
+
+  <div class="form-group">
+    <label for="campImageURL">Image URL</label>
+    {{input id="campImageURL" class="form-control" value=campImageURL}}
+  </div>
+
+  <div class="form-group">
+    <label for="submittedBy">Submitted By:</label>
+    {{input id="submittedBy" class="form-control" value=submittedBy}}
+  </div>
+
+
+  <button class="btn btn-primary" {{action 'save'}}>Submit</button>
+</form>

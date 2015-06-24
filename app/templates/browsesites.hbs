@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h3>Browse Campsites</h3>
+
+  {{#each campsite in model}}
+    <div class="col-md-3">
+      <div class="all-campsites">
+        {{#link-to 'campsite' campsite.id}}
+          <img class="thumbnail" {{bind-attr src=campsite.campImageURL}}/>
+          <h5>{{campsite.elevation}}</h5>
+        {{/link-to}}
+      </div>
+    </div>
+  {{/each}}
+</div>
