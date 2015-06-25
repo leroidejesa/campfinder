@@ -1,0 +1,15 @@
+<h1>Featured</h1>
+
+<div id="wrapper">
+  <div id="columns">
+    {{#each campsite in model}}
+      {{#if campsite.isFeatured}}
+        <div class="each-site">
+          {{#link-to 'campsite' campsite.id}}<img src="{{campsite.campImageURL}}"/>{{/link-to}}
+          <p>{{campsite.name}}</p>
+          <p>Submitted by: {{campsite.submittedBy}}</p>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>

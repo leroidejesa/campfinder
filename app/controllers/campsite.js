@@ -15,6 +15,12 @@ var CampsiteController = {
     doneEditing: function() {
       this.get('model').save();
       this.set('isEditing', false);
+    },
+    setFeatured: function() {
+      var model = this.get('model');
+      model.toggleProperty('isFeatured');
+      model.save();
+      this.transitionToRoute('featured');
     }
   }
 };

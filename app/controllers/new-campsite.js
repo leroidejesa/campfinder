@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
         state: this.get('state'),
         waterSource: this.get('waterSource'),
         campImageURL: this.get('campImageURL'),
+        isFeatured: false,
         submittedBy: this.get('submittedBy')
       });
       campsite.save();

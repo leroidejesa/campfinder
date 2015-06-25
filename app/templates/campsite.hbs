@@ -13,6 +13,7 @@
 {{#if isEditing}}
         {{partial 'campsite/edit'}}
         <button {{action 'doneEditing'}}>Done</button>
+        <button {{action 'setFeatured'}}>Feature this campsite!</button>
       {{else}}
         <button {{action 'edit'}}>Edit this campsite</button>
         <button {{action 'delete'}}>Delete</button>
