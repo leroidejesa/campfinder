@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'campfinder',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://campfinder.firebaseio.com/',
+    firebase: 'https://brilliant-inferno-6390.firebaseio.com',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self'",
       'connect-src': "*",
-      'connect-src': "'self'",
+      'connect-src': "*",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'",
       'frame-src': "'none'"

@@ -2,9 +2,30 @@
 
 <form>
   <div class="form-group">
-    <label for="identifier">Site name:</label>
-    {{input id="identifier" class="form-control" value=identifier}}
+    <label for="name">Site name:</label>
+    {{input id="name" class="form-control" value=name}}
   </div>
+
+  <div class="form-group">
+    <label for="lat">Latitude</label>
+    {{input id="lat" class="form-control" value=lat}}
+  </div>
+
+  <div class="form-group">
+    <label for="long">Longitude</label>
+    {{input id="long" class="form-control" value=long}}
+  </div>
+
+  <div class="form-group">
+    <label for="state">State</label>
+    {{input id="state" class="form-control" value=state}}
+  </div>
+
+<div class="form-group">
+  <label for="availability">What time of year can you camp here?</label>
+  {{input id="availability" class="form-control" value=availability}}
+</div>
+
 
   <div class="form-group">
     <label for="description">Description</label>
@@ -14,11 +35,6 @@
   <div class="form-group">
     <label for="waterSource">Water source?</label>
     {{input id="waterSource" class="form-control" value=waterSource}}
-  </div>
-
-  <div class="form-group">
-    <label for="GPSLocation">Coordinates:</label>
-    {{input id="GPSLocation" class="form-control" value=GPSLocation}}
   </div>
 
   <div class="form-group">
