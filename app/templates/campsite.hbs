@@ -1,6 +1,9 @@
-<img class="campsite-profile"  {{bind-attr src=model.campImageURL}}/>
+<img class="campsite-profile" {{bind-attr src=model.campImageURL}}/>
 
-<h4>{{model.identifier}}</h4>
+<h4>{{model.state}}</h4>
+<h4>{{model.name}}</h4>
+<p><strong>GPS coordinates:</strong> {{model.lat}} , {{model.long}}</p>
+
 <p>Submitted by: {{model.submittedBy}}</p>
 
 <p>Water source? {{model.waterSource}}</p>
