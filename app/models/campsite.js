@@ -10,5 +10,6 @@ export default DS.Model.extend({
   waterSource: DS.attr('string'),
   campImageURL: DS.attr('string'),
   submittedBy: DS.attr('string'),
+  isFeatured: DS.attr('boolean'),
   comments: DS.hasMany('comment', {async: true})
 });

@@ -9,6 +9,7 @@ Router.map(function() {
   this.resource('mapyourroute', {path: '/'});
   this.resource('new-campsite');
   this.resource('browsesites');
+  this.resource('featured');
   this.resource('campsite', {path: 'campsite/:campsite_id'}, function() {
     this.resource('new-comment');
   });

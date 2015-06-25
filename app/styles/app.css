@@ -66,3 +66,93 @@ body {
   padding: 5px;
   border: 1px solid #999;
 }
+
+/*<FEATURED> */
+
+#wrapper {
+  width: 90%;
+  max-width: 1100px;
+  min-width: 800px;
+  margin: 50px auto;
+}
+
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 15px;
+  column-fill: auto;
+}
+
+.each-site {
+  display: inline-block;
+  background: #FEFEFE;
+  border: 2px solid #FAFAFA;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 2px 15px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.each-site img {
+  width: 100%;
+  /*height: 250px;*/
+  /*width: 100%;*/
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+.each-site p {
+  font: 12px/18px Arial, sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+/* </ FEATURED> */
+
+/*<CAROUSEL>*/
+
+.carousel-inner > .item {
+  width: 100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.carousel-inner > .item > img{
+  top:0;
+  left:0;
+  right:0;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none
+}
+
+#myCarousel {
+  margin-top: -20px;
+  padding-top: 0;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 90px;
+}
