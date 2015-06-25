@@ -1,24 +1,36 @@
-var firebaseRef = new Firebase("https://brilliant-inferno-6390.firebaseio.com/");
-
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 var markers = [];
-
-
-var testCampsite1 = new google.maps.LatLng(37.50959, -109.654022);
-var testCampsite2 = new google.maps.LatLng(40.742445, -113.002968);
-var testCampsite3 = new google.maps.LatLng(29.047225, -81.509146);
-var testCampsite4 = new google.maps.LatLng(41.292061, -99.922928);
-var testCampsite5 = new google.maps.LatLng(41.162735, -100.850230);
-
-var campSites = [testCampsite1, testCampsite2, testCampsite3, testCampsite4, testCampsite5];
+var campSites = [];
 var waypts = [];
 var stops;
+var maxMiles;
 
-console.log(campSites.length);
+$(document).ready( function() {
+  loadCampsites();
+});
 
-var maxMiles = 100;
+function loadCampsites() {
+  console.log("LOAD CAMPSITES..")
+  // Get a database reference to our posts
+  var fbRef = new Firebase("https://brilliant-inferno-6390.firebaseio.com/campsites");
+
+  // Attach an asynchronous callback to read the data at our posts reference
+  fbRef.on("value", function(snapshot) {
+    var data = snapshot.val();
+    for (key in data) {
+      var site = data[key];
+      var loc = new google.maps.LatLng(site.lat, site.long);
+      campSites.push(loc);
+    }
+
+    initialize();
+  }, function (errorObject) {
+    alert("Reading campsites from firebase failed: " + errorObject.code);
+  });
+
+}
 
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -46,7 +58,7 @@ function calcRoute() {
   var start = $("#from").val();
   var end = $("#to").val();
   stops = parseInt($("#days").val()) - 1;
-  maxmiles = parseInt($("#miles"));
+  maxMiles = parseInt($("#miles").val());
 
   var request = {
     origin:start,
@@ -162,10 +174,4 @@ function campSitesInRange(latlong, stops) {
   }
 }
 
-
-$(document).ready( function() {
-
-});
-
-
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(window, 'load', initialize);
