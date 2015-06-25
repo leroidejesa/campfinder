@@ -19,8 +19,7 @@ body {
 
 .campsite-profile {
   /*padding: 100px;*/
-  width: 288px;
-  height: 211px;
-  border: solid green 2px;
-  background-image: url("/img/tent.png");
+  width: 300px;
+  height: 200px;
+  background-image: url("/img/default.jpg");
 }
