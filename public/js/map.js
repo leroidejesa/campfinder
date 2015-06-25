@@ -14,7 +14,7 @@ var testCampsite5 = new google.maps.LatLng(41.162735, -100.850230);
 
 var campSites = [testCampsite1, testCampsite2, testCampsite3, testCampsite4, testCampsite5];
 var waypts = [];
-var stops = 2;
+var stops;
 
 console.log(campSites.length);
 
@@ -33,13 +33,21 @@ function initialize() {
   calcRoute();
 }
 
-
+function newRoute() {
+  clearMarkers();
+  waypts.length = 0;
+  $("#stops").empty();
+  initialize();
+}
 
 function calcRoute() {
   console.log("calcRoute");
 
-  var end = "detroit, mi";
-  var start = "portland, or";
+  var start = $("#from").val();
+  var end = $("#to").val();
+  stops = parseInt($("#days").val()) - 1;
+  maxmiles = parseInt($("#miles"));
+
   var request = {
     origin:start,
     waypoints: waypts,
@@ -68,9 +76,6 @@ function calcRoute() {
 
       for (i = 1; i <= stops; i++) {
         var stop = path[i * stopAtEvery];
-        // addMarkerAt(stop);
-        markers.push(stop);
-        console.log ("setting marker # " + i);
         campSitesInRange(stop, stops);
       }
 
@@ -84,8 +89,9 @@ function addMarkerAt(latlong) {
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
-    title: 'Hello World!'
+    title: 'DEBUG'
   });
+  markers.push(marker);
 }
 
 function addTentMarkerAt(latlong) {
@@ -96,6 +102,14 @@ function addTentMarkerAt(latlong) {
     map: map,
     icon: tentIcon
   });
+  markers.push(marker);
+}
+
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers.length = 0;
 }
 
 function updatewaypoints() {
@@ -115,7 +129,7 @@ function updatewaypoints() {
       waypts.push({location: waypoint, stopover: true});
     }
   });
-  // waypts.push({location: marker.getPosition(), stopover: true})
+
   calcRoute();
 };
 
@@ -128,34 +142,24 @@ function distanceBetween(pointA, pointB) {
 }
 
 function campSitesInRange(latlong, stops) {
-
-  var alreadyBuilt = $("#stops").children("select").length;
-
-  if (stops === alreadyBuilt) {
-    return
-  }
-
-  // <h4 class="waypoint-title">Waypoint ' + (alreadyBuilt + 1) + '</h4>
-
-  var stopDiv = '<select multiple="multiple" onchange="updatewaypoints();" class=" select select-waypoint" id="' + latlong + '">';
-
-  console.log("campSitesInRange with: " + latlong);
   var campingOptions = [];
-  console.log(campSites.length);
   for (var i=0; i < campSites.length; i++) {
-    console.log(i);
     var distance = distanceBetween(campSites[i], latlong);
     if (distance <= maxMiles) {
       addTentMarkerAt(campSites[i]);
       campingOptions.push(campSites[i]);
-
-      stopDiv += '<option value="' + campSites[i] + '">Campsite' + (i+1) + '</option>';
     }
-    console.log(campingOptions);
   }
-  stopDiv += '</select>';
-  console.log(stopDiv);
-  $("#stops").append(stopDiv);
+
+  var alreadyBuilt = $("#stops").children("select").length;
+  if (alreadyBuilt < stops) {
+    var stopDiv = '<select multiple="multiple" onchange="updatewaypoints();" class=" select select-waypoint" id="' + latlong + '">';
+    for (var i = 0; i < campingOptions.length; i++) {
+      stopDiv += '<option value="' + campingOptions[i] + '">Campsite' + (i+1) + '</option>';
+    }
+    stopDiv += '</select>';
+    $("#stops").append(stopDiv);
+  }
 }
 
 

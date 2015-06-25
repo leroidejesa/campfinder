@@ -2,10 +2,32 @@
 
 <h4>Remember to leave no trace</h4>
 
-<div id="map-container">
-  <div id="map-canvas"></div>
-  <div id="stops"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div id="map-container">
+        <div id="map-canvas"></div>
+        <div id="stops"></div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="tripDays">Desired # of Travel Days</label>
+        <input type="number" id="days" value="3" min="2" max="7">
+        <br><br>
+        <label for="from">From:</label>
+        <input id="from" type="text" value="Portland, OR">
+        <label for="to">To:</label>
+        <input id="to" type="text" value="Deroit, MI">
+        <br><br>
+        <label for="miles">Miles from route to search for sites</label>
+        <input type="number" id="miles" value="600" min="15" max="900">
+        <button class="btn btn-primary" onclick="newRoute();" id="updateRoute">Update Route</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 <script src="js/map.js" charset="utf-8"></script>
