@@ -55,6 +55,14 @@ body {
   position: relative;
 }
 
+.centered {
+  text-align: center;
+  margin: auto;
+}
+
+.centered img {
+  height: 100px;
+}
 
 #panel {
   position: absolute;
