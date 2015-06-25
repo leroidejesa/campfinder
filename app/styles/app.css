@@ -23,3 +23,46 @@ body {
   height: 200px;
   background-image: url("/img/default.jpg");
 }
+
+#map-container {
+  position: relative;
+}
+
+
+#map-canvas {
+  height: 600px;
+  width: 800px;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+}
+
+
+#stops {
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  top:0px;
+  width: 100%;
+}
+
+#stops select {
+  margin: 2px 1px 0px 1px;
+}
+
+.select-waypoint {
+  display: inline-block;
+  position: relative;
+}
+
+
+#panel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -180px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}
