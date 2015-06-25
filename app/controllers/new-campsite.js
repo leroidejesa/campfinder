@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
       });
       campsite.save();
 
-      // this.setProperties({identifier: " ", description: " ", review: " ", waterSource: " ", GPSLocation: " ", campImageURL: " ", rating: " ", submittedBy: " "});
+      this.setProperties({name: " ", description: " ", availability: " ", lat: " ", long: " ", state: " ", waterSource: " ", campImageURL: " ", submittedBy: " "});
       this.transitionToRoute('browsesites');
     }
   }
