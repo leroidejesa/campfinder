@@ -2,8 +2,12 @@
   max-width: 40px;
 }
 
-body {
+.page {
   padding: 70px;
+}
+
+body {
+  /*padding: 70px;*/
   width: 100%;
 }
 
