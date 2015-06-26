@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('mapyourroute', {path: '/'});
+  this.resource('mapyourroute');
   this.resource('new-campsite');
   this.resource('browsesites');
   this.resource('featured');
@@ -14,6 +14,7 @@ Router.map(function() {
     this.resource('new-comment');
   });
   this.resource('about');
+  this.route('loading');
 });
 
 export default Router;
