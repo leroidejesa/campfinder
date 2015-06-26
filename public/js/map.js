@@ -8,6 +8,10 @@ var stops;
 var maxMiles;
 
 $(document).ready( function() {
+
+  var loadingDiv = '<div class="centered" id="jq-loading-div"><h1>LOADING...  PLEASE WAIT.</h1><img src="img/ajax-loader.gif" id="loader-img" alt="loading" /></div>';
+  $("body").append(loadingDiv);
+
   loadCampsites();
 });
 
@@ -24,7 +28,7 @@ function loadCampsites() {
       var loc = new google.maps.LatLng(site.lat, site.long);
       campSites.push(loc);
     }
-
+    $("#jq-loading-div").hide();
     initialize();
   }, function (errorObject) {
     alert("Reading campsites from firebase failed: " + errorObject.code);
