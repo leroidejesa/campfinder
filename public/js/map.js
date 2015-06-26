@@ -25,8 +25,9 @@ function loadCampsites() {
     var data = snapshot.val();
     for (key in data) {
       var site = data[key];
-      var loc = new google.maps.LatLng(site.lat, site.long);
-      campSites.push(loc);
+      // var loc = new google.maps.LatLng(site.lat, site.long);
+      site.location = new google.maps.LatLng(site.lat, site.long);
+      campSites.push(site);
     }
     $("#jq-loading-div").hide();
     initialize();
@@ -118,6 +119,12 @@ function addTentMarkerAt(latlong) {
     map: map,
     icon: tentIcon
   });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    map.setZoom(8);
+    map.setCenter(marker.getPosition());
+  });
+
   markers.push(marker);
 }
 
@@ -160,9 +167,9 @@ function distanceBetween(pointA, pointB) {
 function campSitesInRange(latlong, stops) {
   var campingOptions = [];
   for (var i=0; i < campSites.length; i++) {
-    var distance = distanceBetween(campSites[i], latlong);
+    var distance = distanceBetween(campSites[i].location, latlong);
     if (distance <= maxMiles) {
-      addTentMarkerAt(campSites[i]);
+      addTentMarkerAt(campSites[i].location);
       campingOptions.push(campSites[i]);
     }
   }
@@ -171,11 +178,9 @@ function campSitesInRange(latlong, stops) {
   if (alreadyBuilt < stops) {
     var stopDiv = '<select multiple="multiple" onchange="updatewaypoints();" class=" select select-waypoint" id="' + latlong + '">';
     for (var i = 0; i < campingOptions.length; i++) {
-      stopDiv += '<option value="' + campingOptions[i] + '">Campsite' + (i+1) + '</option>';
+      stopDiv += '<option value="' + campingOptions[i].location + '">' + campingOptions[i].name + '</option>';
     }
     stopDiv += '</select>';
     $("#stops").append(stopDiv);
   }
 }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
