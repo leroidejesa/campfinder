@@ -1,4 +1,5 @@
 {{#if showingAll}}
+
   <div class="page">
     <h1>Featured</h1>
     <div id="wrapper">
@@ -15,95 +16,61 @@
       </div>
     </div>
   </div>
+
 {{else}}
 
-
-<section class="block">
-    <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="active item">
-              <img src="img/forest.jpg" alt="Slide1" />
-              <div class="carousel-caption">
-                <h1>Featured Campsite</h1><hr>
-                <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-                <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
+  <section class="block">
+      <div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+              <div class="active item">
+                <img src="img/forest.jpg" alt="Slide1" />
+                <div class="carousel-caption">
+                  <h1>Featured Campsite: Cone Peak</h1>
+                  <h4>Los Padres National Forest, California</h4>
+                  <hr>
+                  <p class="lead">Cone Peak is the most spectacular mountain on the Big Sur coast of California. It is the second highest mountain (Junipero Serra Peak is higher) in the Santa Lucia Range. It has a dramatic setting less than 3 miles as crow flies from the Pacific Ocean, its average gradient from sea level to the summit is about 33%, which is steeper on average than the gradient from Owens Valley to Mount Whitney. <br>&nbsp; <i><span style="font-size: 10px">Submitted by J. Muir</span></i></p>
+                  <br>
+                  <br>
+                  <a class="btn clear-btn" href="http://localhost:4200/campsite/-JskmOjHeJJSY-ggpOY-">View Details</a>
+                  <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
+                </div>
               </div>
-            </div>
-            <div class="item">
-                <img src="img/desert.jpg" alt="Slide2" />
-                <div class="carousel-caption">
-                  <h1>Featured Campsite</h1><hr>
-                  <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-                  <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/lake.jpg" alt="Slide3" />
-                <div class="carousel-caption">
-                  <h1>Featured Campsite</h1><hr>
-                  <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-                  <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
-                </div>
-            </div>
-        </div>
-
- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-   <span class="sr-only">Previous</span>
- </a>
- <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-   <span class="sr-only">Next</span>
- </a>
-
-    </div>
-</section>
-
-
-<!-- <div id="myCarousel" class="carousel slide container" data-ride="carousel">
-
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
-
-
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="http://i.imgur.com/Ma8sFkN.jpg" alt="Chania">
-    <div class="carousel-caption">
-      <h1>Featured Campsite</h1><hr>
-      <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-    </div>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Forest-trail-trees_-_West_Virginia_-_ForestWander.jpg" alt="Chania">
-      <div class="carousel-caption">
-        <h1>Featured Campsite</h1><hr>
-        <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
+              <div class="item">
+                  <img src="img/desert.jpg" alt="Slide2" />
+                  <div class="carousel-caption">
+                    <h1>Featured Campsite: Goose Island</h1>
+                    <h4>Somewhere near Moab, Utah</h4>
+                    <hr>
+                    <p class="lead">Goose Island Campground is located 1.4 miles from Highway 191 on Highway 128 very close to Moab. The campsites offer spectacular views and massive red rock cliffs of Arches National Park. Both RV and tent camping are available. The campground is popular due to its proximity to town, its shade during the summer, and the beautiful scenery. Campsites are available on a first-come, first served basis. <br>&nbsp; <i><span style="font-size: 10px">Submitted by E. Abbey</span></i></p>
+                    <br>
+                    <br>
+                    <a class="btn clear-btn" href="http://localhost:4200/campsite/-Jskx0Ds6aGg1BQ0_SHZ">View Details</a>
+                    <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
+                  </div>
+              </div>
+              <div class="item">
+                  <img src="img/lake.jpg" alt="Slide3" />
+                  <div class="carousel-caption">
+                    <h1>Featured Campsite: Ipsum Lake</h1>
+                    <h4>Concord, Massachussetts</h4>
+                    <hr>
+                    <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit. <br>&nbsp; <i><span style="font-size: 10px">Submitted by H.D. Thoreau</span></i></p>
+                    <br>
+                    <br>
+                    <a class="btn clear-btn" href="https://www.youtube.com/watch?v=oHg5SJYRHA0">View Details</a>
+                    <button class="btn clear-btn" {{action 'switch'}}>Browse all featured</button>
+                  </div>
+              </div>
+          </div>
+         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+         </a>
+         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+         </a>
       </div>
-    </div>
-    <div class="item">
-      <img src="http://www.lesstravelednorthwest.com/oregon_southeast/fish_creek/fish_creek_files/BIG5-fish-lake-cg.jpg.jpg" alt="Flower">
-      <div class="carousel-caption">
-        <h1>Featured Campsite</h1><hr>
-        <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="http://freecampsites.net/wp-content/uploads/2015/06/IMG_0519.jpg " alt="Flower">
-      <div class="carousel-caption">
-        <h1>Featured Campsite</h1><hr>
-        <p class="lead">Lorem ipsum dolor sit amet, facete democritum te pro, eam at odio oportere assentior. Sea ne nostrum complectitur. Eligendi forensibus at pro, pri no amet rebum abhorreant, qui erroribus constituto definitiones ut. Tantas constituam ne est. Cu vix assentior reprehendunt, eam id nibh scribentur, et sint illud delenit sit.</p>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Left and right controls -->
-
-
-
+  </section>
 
 {{/if}}
