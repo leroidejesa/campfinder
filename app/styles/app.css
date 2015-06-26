@@ -207,3 +207,43 @@ body {
 #info {
   background-color: silver;
 }
+
+.landing-div {
+  margin-top: 50px;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/img/landing-main2.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: white;
+  text-align: center;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.landing-title {
+  font-size: 65px;
+  margin-top: 20%;
+}
+
+.enter {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #d84315;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border:none;
+}
+
+.enter:hover {
+  background: #e94d1d;
+  text-decoration: none;
+}
