@@ -16,7 +16,7 @@ $(document).ready( function() {
 });
 
 function loadCampsites() {
-  console.log("LOAD CAMPSITES..")
+  // console.log("LOAD CAMPSITES..")
   // Get a database reference to our posts
   var fbRef = new Firebase("https://brilliant-inferno-6390.firebaseio.com/campsites");
 
@@ -58,7 +58,7 @@ function newRoute() {
 }
 
 function calcRoute() {
-  console.log("calcRoute");
+  // console.log("calcRoute");
 
   var start = $("#from").val();
   var end = $("#to").val();
@@ -76,9 +76,9 @@ function calcRoute() {
     if (status == google.maps.DirectionsStatus.OK) {
 
       if (typeof directionsDisplay === "undefined") {
-        console.log("undefined");
+        // console.log("undefined");
       } else {
-        console.log("status ok");
+        // console.log("status ok");
       }
 
       directionsDisplay.setDirections(response);
@@ -100,22 +100,19 @@ function calcRoute() {
   });
 }
 
-function addMarkerAt(latlong) {
-  myLatlng = new google.maps.LatLng(latlong.A,latlong.F);
-
+function addMarkerAt(campSite) {
   var marker = new google.maps.Marker({
-    position: myLatlng,
+    position: campSite.location,
     map: map,
     title: 'DEBUG'
   });
   markers.push(marker);
 }
 
-function addTentMarkerAt(latlong) {
-  myLatlng = new google.maps.LatLng(latlong.A,latlong.F);
+function addTentMarkerAt(campSite) {
   var tentIcon = 'img/tent-marker.png';
   var marker = new google.maps.Marker({
-    position: myLatlng,
+    position: campSite.location,
     map: map,
     icon: tentIcon
   });
@@ -123,6 +120,16 @@ function addTentMarkerAt(latlong) {
   google.maps.event.addListener(marker, 'click', function() {
     map.setZoom(8);
     map.setCenter(marker.getPosition());
+  });
+
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    var infoDiv = $("#info");
+    infoDiv.text(campSite.name);
+  });
+
+  google.maps.event.addListener(marker, 'mouseout', function() {
+    var infoDiv = $("#info");
+    infoDiv.text("");
   });
 
   markers.push(marker);
@@ -160,7 +167,7 @@ function updatewaypoints() {
 function distanceBetween(pointA, pointB) {
   var distanceBetween = google.maps.geometry.spherical.computeDistanceBetween(pointA, pointB);
   var distanceInMiles = Math.round(distanceBetween * .000621371);
-  console.log("distance between " + pointA + " and " + pointB + " is " + distanceInMiles + " miles.");
+  // console.log("distance between " + pointA + " and " + pointB + " is " + distanceInMiles + " miles.");
   return distanceInMiles;
 }
 
@@ -169,7 +176,7 @@ function campSitesInRange(latlong, stops) {
   for (var i=0; i < campSites.length; i++) {
     var distance = distanceBetween(campSites[i].location, latlong);
     if (distance <= maxMiles) {
-      addTentMarkerAt(campSites[i].location);
+      addTentMarkerAt(campSites[i]);
       campingOptions.push(campSites[i]);
     }
   }

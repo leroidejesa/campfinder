@@ -31,7 +31,7 @@ body {
 
 #map-canvas {
   height: 600px;
-  width: 800px;
+  width: 100%;
   margin: 0px;
   padding: 0px;
   display: inline-block;
@@ -80,4 +80,16 @@ body {
   left: 0px;
   top: 200px;
   width:100%
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+#info {
+  background-color: silver;
 }
