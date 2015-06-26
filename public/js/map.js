@@ -8,9 +8,14 @@ var stops;
 var maxMiles;
 
 $(document).ready( function() {
-  var loadingDiv = '<div class="centered" id="jq-loading-div"><h1>LOADING...  PLEASE WAIT.</h1><img src="img/ajax-loader.gif" id="loader-img" alt="loading" /></div>';
+  console.log("JQ Document Ready");
+  console.log("Campsites loaded: " + campSites.length)
+  var loadingDiv = '<div class="centered" style="display: none;" id="jq-loading-div"><h1>LOADING...  PLEASE WAIT.</h1><img src="img/ajax-loader.gif" id="loader-img" alt="loading" /></div>';
   $("body").append(loadingDiv);
-  loadCampsites();
+  if (campSites.length === 0){
+    $("#jq-loading-div").show();
+    loadCampsites();
+  }
 });
 
 function loadCampsites() {
@@ -26,8 +31,9 @@ function loadCampsites() {
       site.location = new google.maps.LatLng(site.lat, site.long);
       campSites.push(site);
     }
-    $("#jq-loading-div").hide();
+    console.log("Campsites loaded: " + campSites.length)
     initialize();
+    $("#jq-loading-div").hide();
   }, function (errorObject) {
     alert("Reading campsites from firebase failed: " + errorObject.code);
   });
@@ -65,6 +71,7 @@ function calcRoute(recalcStops) {
     destination:end,
     travelMode: google.maps.TravelMode.DRIVING
   };
+
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);

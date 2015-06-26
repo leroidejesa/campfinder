@@ -85,13 +85,10 @@ body {
   border: 1px solid #999;
 }
 
-/*<FEATURED> */
-
 #wrapper {
   width: 100%;
   max-width: 1100px;
   min-width: 800px;
-  /*margin: 20px auto;*/
 }
 
 #columns {
@@ -128,8 +125,6 @@ body {
 
 .each-site img {
   width: 100%;
-  /*height: 250px;*/
-  /*width: 100%;*/
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
   margin-bottom: 5px;
@@ -141,12 +136,6 @@ body {
   margin: 0;
 }
 
-/* </ FEATURED> */
-
-/*<CAROUSEL>*/
-
-
-
 .carousel .item {
     width: 100%;
     /*max-height: 900px;*/
@@ -154,7 +143,6 @@ body {
 }
 .carousel .item img {
     width: 100%;
-    /*height: 100%;*/
 }
 
 .carousel .carousel-control {
@@ -189,6 +177,20 @@ body {
   opacity: .7;
 }
 
+a.btn {
+    /*border: black 1px;*/
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: none;
+}
+
+a.btn:hover {
+  color: #FFFFFF;
+  opacity: .7;
+}
+
 #jq-loading-div {
   position: absolute;
   left: 0px;
@@ -207,6 +209,7 @@ body {
 #info {
   background-color: silver;
 }
+
 
 .landing-div {
   margin-top: 50px;
@@ -246,4 +249,11 @@ body {
 .enter:hover {
   background: #e94d1d;
   text-decoration: none;
+}
+
+.loading-template {
+  position: absolute;
+  width: 100%;
+  top: 200px;
+
 }
