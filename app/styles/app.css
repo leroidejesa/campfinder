@@ -207,3 +207,25 @@ body {
 #info {
   background-color: silver;
 }
+
+.background {
+  height: 1000px;
+}
+
+.about-header {
+  margin-top: 50px;
+  height: 30vh;
+  width: 100vw;
+  background-image: url("/img/about.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: white;
+  text-align: center;
+  padding-left: 0px;
+  margin-left: 0px;
+
+}
