@@ -207,3 +207,9 @@ body {
 #info {
   background-color: silver;
 }
+
+.loading-template {
+  position: absolute;
+  width: 100%;
+  top: 200px;
+}
