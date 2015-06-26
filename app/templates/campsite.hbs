@@ -1,35 +1,37 @@
-<img class="campsite-profile" {{bind-attr src=model.campImageURL}}/>
+<div class="container">
+  <img class="campsite-profile" {{bind-attr src=model.campImageURL}}/>
 
-<h4>{{model.name}}</h4>
-<p><strong>State:</strong> {{model.state}}</p>
-<p><strong>GPS coordinates:</strong> {{model.lat}} , {{model.long}}</p>
+  <h4>{{model.name}}</h4>
+  <p><strong>State:</strong> {{model.state}}</p>
+  <p><strong>GPS coordinates:</strong> {{model.lat}} , {{model.long}}</p>
 
-<p>{{model.submittedBy}}</p>
+  <p>{{model.submittedBy}}</p>
 
-<p><strong>Water source?</strong> {{model.waterSource}}</p>
+  <p><strong>Water source?</strong> {{model.waterSource}}</p>
 
-<p>{{model.description}}</p>
+  <p>{{model.description}}</p>
 
-{{#if isEditing}}
-        {{partial 'campsite/edit'}}
-        <button {{action 'doneEditing'}}>Done</button>
-        <button {{action 'setFeatured'}}>Feature this campsite!</button>
-      {{else}}
-        <button {{action 'edit'}}>Edit this campsite</button>
-        <button {{action 'delete'}}>Delete</button>
-      {{/if}}
+  {{#if isEditing}}
+          {{partial 'campsite/edit'}}
+          <button {{action 'doneEditing'}}>Done</button>
+          <button {{action 'setFeatured'}}>Feature this campsite!</button>
+        {{else}}
+          <button {{action 'edit'}}>Edit this campsite</button>
+          <button {{action 'delete'}}>Delete</button>
+        {{/if}}
 
-<br><br><br>
+  <br><br><br>
 
-{{#each comments}}
-  <div class="message-frame">
-    <h5>{{commentText}}</h5>
-    <p>{{commentAuthor}}</p>
-  </div>
-      <br>
-{{/each}}
+  {{#each comments}}
+    <div class="message-frame">
+      <h5>{{commentText}}</h5>
+      <p>{{commentAuthor}}</p>
+    </div>
+        <br>
+  {{/each}}
 
-{{#link-to 'new-comment' this.id class="btn btn-primary"}}Add a comment{{/link-to}}
-<br>
+  {{#link-to 'new-comment' this.id class="btn btn-primary"}}Add a comment{{/link-to}}
+  <br>
 
-{{outlet}}
+  {{outlet}}
+</div>
