@@ -14,6 +14,7 @@ Router.map(function() {
     this.resource('new-comment');
   });
   this.resource('about');
+  this.route('loading');
 });
 
 export default Router;
