@@ -1,5 +1,6 @@
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
+var overlay = new google.maps.OverlayView();
 var map;
 var markers = [];
 var campSites = [];
@@ -47,6 +48,8 @@ function initialize() {
     center: chicago
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  overlay.draw = function() {};
+  overlay.setMap(map);
   directionsDisplay.setMap(map);
   calcRoute(true);
 }
@@ -105,14 +108,29 @@ function addTentMarkerAt(campSite) {
     icon: tentIcon
   });
 
-  google.maps.event.addListener(marker, 'click', function() {
-    map.setZoom(8);
+  google.maps.event.addListener(marker, 'click', function(e) {
+    map.setZoom(4);
     map.setCenter(marker.getPosition());
   });
 
-  google.maps.event.addListener(marker, 'mouseover', function() {
+  google.maps.event.addListener(marker, 'mouseover', function(e) {
+
+    var point = overlay.getProjection().fromLatLngToDivPixel(e.latLng);
+
+    var mapLeft = point.x;
+    var mapTop = point.y;
+
     var infoDiv = $("#info");
-    infoDiv.text(campSite.name);
+    var smartTag = $("#smart-tag");
+    var mapPos = $("#map-canvas").offset();
+
+    mapLeft = mapPos.left + mapLeft;
+    mapTop = mapPos.top + mapTop;
+
+    infoDiv.html(buildInfo(campSite));
+    smartTag.text(campSite.name);
+
+    smartTag.css({top: mapTop, left: mapLeft, position:'absolute'});
   });
 
 //  google.maps.event.addListener(marker, 'mouseout', function() {
@@ -121,6 +139,18 @@ function addTentMarkerAt(campSite) {
 //  });
 
   markers.push(marker);
+}
+
+function buildInfo(campSite) {
+  var output = "<h4 class='info-header'>Camp Site Info</h4>";
+  output = output + "<table class='info-table'>"
+  for (key in campSite) {
+    output = output + "<tr>"
+    output = output + "<td><span class='property-name'>" + key + ":</span></td>";
+    output = output + "<td><span class='property-value'>" + campSite[key] + "</span></td>";
+    output = output + "</tr>"
+  }
+  return output;
 }
 
 function clearMarkers() {
