@@ -16,15 +16,17 @@
     <div class="col-lg-2">
       <div class="form-group float-left">
         <label for="tripDays">Desired # of Travel Days</label>
-        <input type="number" id="days" value="3" min="2" max="7">
+        <input type="number" class="form-control" id="days" value="3" min="2" max="7">
         <br><br>
-        <label for="from">From:</label>
-        <input id="from" type="text" value="Portland, OR">
-        <label for="to">To:</label>
-        <input id="to" type="text" value="San Deigo, CA">
+        <label for="from">Starting From:</label>
+        <input id="from" type="text" class="form-control" value="Portland, OR">
+        <br><br>
+        <label for="to">Going To:</label>
+        <input id="to" type="text" class="form-control" value="San Deigo, CA">
         <br><br>
         <label for="miles">Miles from route to search for sites</label>
-        <input type="number" id="miles" value="20" min="5" max="500">
+        <input type="number" id="miles" class="form-control" value="20" min="5" max="500">
+        <br><br>
         <button class="btn btn-primary" onclick="newRoute();" id="updateRoute">Update Route</button>
       </div>
     </div>

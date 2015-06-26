@@ -8,10 +8,8 @@ var stops;
 var maxMiles;
 
 $(document).ready( function() {
-
   var loadingDiv = '<div class="centered" id="jq-loading-div"><h1>LOADING...  PLEASE WAIT.</h1><img src="img/ajax-loader.gif" id="loader-img" alt="loading" /></div>';
   $("body").append(loadingDiv);
-
   loadCampsites();
 });
 
@@ -19,7 +17,6 @@ function loadCampsites() {
   // console.log("LOAD CAMPSITES..")
   // Get a database reference to our posts
   var fbRef = new Firebase("https://brilliant-inferno-6390.firebaseio.com/campsites");
-
   // Attach an asynchronous callback to read the data at our posts reference
   fbRef.on("value", function(snapshot) {
     var data = snapshot.val();
@@ -34,7 +31,6 @@ function loadCampsites() {
   }, function (errorObject) {
     alert("Reading campsites from firebase failed: " + errorObject.code);
   });
-
 }
 
 function initialize() {
@@ -46,8 +42,7 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
-
-  calcRoute();
+  calcRoute(true);
 }
 
 function newRoute() {
@@ -57,14 +52,12 @@ function newRoute() {
   initialize();
 }
 
-function calcRoute() {
+function calcRoute(recalcStops) {
   // console.log("calcRoute");
-
   var start = $("#from").val();
   var end = $("#to").val();
   stops = parseInt($("#days").val()) - 1;
   maxMiles = parseInt($("#miles").val());
-
   var request = {
     origin:start,
     waypoints: waypts,
@@ -74,28 +67,16 @@ function calcRoute() {
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-
-      if (typeof directionsDisplay === "undefined") {
-        // console.log("undefined");
-      } else {
-        // console.log("status ok");
-      }
-
       directionsDisplay.setDirections(response);
-
-      var path = response.routes[0].overview_path;
-
-
-      var days = stops + 1;
-      var stopAtEvery = Math.floor(path.length / days);
-
-      // $("#stops").empty();
-
-      for (i = 1; i <= stops; i++) {
-        var stop = path[i * stopAtEvery];
-        campSitesInRange(stop, stops);
+      if (recalcStops) {
+        var path = response.routes[0].overview_path;
+        var days = stops + 1;
+        var stopAtEvery = Math.floor(path.length / days);
+        for (i = 1; i <= stops; i++) {
+          var stop = path[i * stopAtEvery];
+          campSitesInRange(stop, stops);
+        }
       }
-
     }
   });
 }
@@ -127,10 +108,10 @@ function addTentMarkerAt(campSite) {
     infoDiv.text(campSite.name);
   });
 
-  google.maps.event.addListener(marker, 'mouseout', function() {
-    var infoDiv = $("#info");
-    infoDiv.text("");
-  });
+//  google.maps.event.addListener(marker, 'mouseout', function() {
+//    var infoDiv = $("#info");
+//    infoDiv.text("");
+//  });
 
   markers.push(marker);
 }
@@ -143,13 +124,10 @@ function clearMarkers() {
 }
 
 function updatewaypoints() {
-
   waypts.length = 0;
-
   $("#stops").children("select").each( function (child) {
     var select = $(this);
     var strLatLong = select.val();
-
     if (strLatLong !== null) {
       strLatLong = strLatLong[0];
       strLatLong = strLatLong.replace("(","");
@@ -159,10 +137,8 @@ function updatewaypoints() {
       waypts.push({location: waypoint, stopover: true});
     }
   });
-
-  calcRoute();
+  calcRoute(false);
 };
-
 
 function distanceBetween(pointA, pointB) {
   var distanceBetween = google.maps.geometry.spherical.computeDistanceBetween(pointA, pointB);
@@ -175,12 +151,12 @@ function campSitesInRange(latlong, stops) {
   var campingOptions = [];
   for (var i=0; i < campSites.length; i++) {
     var distance = distanceBetween(campSites[i].location, latlong);
-    if (distance <= maxMiles) {
+    // console.log(distance);
+    if (!isNaN(distance) && distance <= maxMiles) {
       addTentMarkerAt(campSites[i]);
       campingOptions.push(campSites[i]);
     }
   }
-
   var alreadyBuilt = $("#stops").children("select").length;
   if (alreadyBuilt < stops) {
     var stopDiv = '<select multiple="multiple" onchange="updatewaypoints();" class=" select select-waypoint" id="' + latlong + '">';
