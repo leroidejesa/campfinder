@@ -31,7 +31,7 @@ body {
 
 #map-canvas {
   height: 600px;
-  width: 800px;
+  width: 100%;
   margin: 0px;
   padding: 0px;
   display: inline-block;
@@ -55,6 +55,14 @@ body {
   position: relative;
 }
 
+.centered {
+  text-align: center;
+  margin: auto;
+}
+
+.centered img {
+  height: 100px;
+}
 
 #panel {
   position: absolute;
@@ -155,4 +163,23 @@ body {
 .carousel-caption {
   position: absolute;
   top: 90px;
+}
+
+#jq-loading-div {
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  width:100%
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+#info {
+  background-color: silver;
 }
