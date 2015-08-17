@@ -1,7 +1,10 @@
-# Campfinder
+# DRIVE.CAMP.FREE
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A web app that helps users find cost-free campsites along the route of their road trips by displaying them on a custom Google Map based on specific criteria (e.g. days of travel, search radius, destination, etc.). 
+
+Originally created as a group exercise at [Epicodus](www.epicodus.com), Portland, Oregon.
+
+Created using EmberCLI.
 
 ## Prerequisites
 
